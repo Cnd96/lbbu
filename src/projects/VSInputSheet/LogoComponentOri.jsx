@@ -65,9 +65,9 @@ const LogoComponent =props=> {
           const sheetStylesNumbers=sheetStyles.filter(l=>l[otrHeaderNames.MovexStyle]).map(l=>l[otrHeaderNames.MovexStyle])
           const uniqueStyles=[...new Set([...sheetStylesNumbers])];
           uniqueStyles.forEach(style=>{
-            const stylesData=sheetStyles.filter(l=>l[otrHeaderNames.MovexStyle]==style).map(l=>({...l,wareHouse:"",destination:"",deliveryMethod:"",
-            merchandiser:"",planner:"",packMethod:"",productGroup:"",buyerDivision:""}))
-            uniqueStylesWithData.push({styleNo:style,lines:stylesData,added:false})
+            const stylesData=sheetStyles.filter(l=>l[otrHeaderNames.MovexStyle]==style);
+            uniqueStylesWithData.push({styleNo:style,lines:stylesData,wareHouse:"",destination:"",deliveryMethod:"",
+            merchandiser:"",planner:"",packMethod:"",productGroup:"",buyerDivision:"",added:false})
           })
           setStylesData(uniqueStylesWithData);
           setIsOtrUploaded(true);
@@ -179,7 +179,6 @@ const LogoComponent =props=> {
     if(selectedStylesData){
       setSelectedStyleData(selectedStylesData);
       setShowStyle(true);
-      console.log(selectedStylesData)
     }
   }
   return(
